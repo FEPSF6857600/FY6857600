@@ -1,4 +1,4 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -10,6 +10,8 @@
         body {
             font-family: Arial, sans-serif;
             margin: 20px;
+            line-height: 1.6;
+            color: #333;
         }
         header img {
             width: 100%;
@@ -20,10 +22,12 @@
         }
         h1, h2, h3, h4 {
             text-align: center;
+            color: #2c3e50;
         }
-        p, pre {
+        p, pre, td, th {
+            font-size: 16px;
             text-align: justify;
-            margin: 20px 40px;
+            margin: 10px 40px;
         }
         table {
             width: 80%;
@@ -36,7 +40,8 @@
             text-align: left;
         }
         th {
-            background-color: #f2f2f2;
+            background-color: #f4f4f4;
+            color: #2c3e50;
         }
         tr:nth-child(even) {
             background-color: #f9f9f9;
@@ -47,6 +52,16 @@
         }
         a:hover {
             text-decoration: underline;
+        }
+        hr {
+            border: 0;
+            height: 1px;
+            background: #ccc;
+            margin: 20px 0;
+        }
+        img {
+            display: block;
+            margin: 20px auto;
         }
     </style>
 </head>
@@ -99,8 +114,8 @@
 <hr>
 
 <h3 id="AnalysisDiscussion">Analysis and Discussion</h3>
+<p><strong>Mechanisms Behind Geomagnetic Storms</strong></p>
 <p>
-    <strong>Mechanisms Behind Geomagnetic Storms</strong><br>
     Geomagnetic storms are initiated by solar eruptions, particularly Coronal Mass Ejections (CMEs) and High-Speed Solar Wind Streams (HSS). CMEs eject plasma and magnetic energy from the Sun’s corona at speeds exceeding 1,500 km/s. When they collide with Earth's magnetosphere, they compress it, allowing charged particles to enter and create auroras (NOAA, 2023).
 </p>
 
@@ -136,15 +151,13 @@
         </tr>
     </tbody>
 </table>
-<h3>This table illustrates how geomagnetic storms affect technological systems and the strategies employed to mitigate these effects.</h3>
+<p>This table illustrates how geomagnetic storms affect technological systems and the strategies employed to mitigate these effects.</p>
 
-<p>
-    <img src="estimated-planetary-k-index.png" alt="Geomagnetic Activity" width="500">
-</p>
-<p><strong>Figure 1:</strong> Estimated planetary K-index chart. This shows the intensity of geomagnetic activity, where higher values indicate stronger storms, potentially leading to auroras and infrastructure disruption.</p>
+<img src="estimated-planetary-k-index.png" alt="Geomagnetic Activity" width="500">
+<p><strong>Figure 1:</strong> Estimated planetary K-index chart showing the intensity of geomagnetic activity.</p>
 
+<p><strong>Historical and Recent Events</strong></p>
 <p>
-    <strong>Historical and Recent Events</strong><br>
     The Carrington Event remains the most powerful recorded storm, causing global telegraph disruptions. More recently, the April 2023 event demonstrated that even moderate storms could affect satellites and power grids, underscoring the need for ongoing monitoring and preparedness (USGS, 2023).
 </p>
 
