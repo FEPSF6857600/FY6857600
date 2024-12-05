@@ -119,7 +119,7 @@
     Geomagnetic storms occurs when there is a massive exchange of energy from the solar wind to the space near earth. For example, attack on magnetic field by CME’s or developed solar wind streams causes geomagnetic storms. A coronal mass ejection (CME) is a plasma and magnetic energy from the sun’s corona that can exceed 1500km/s. After making it to the earth’s and compressing to the magnetic field, letting the charged particles are entering to the atmosphere near the poles where they form auroras (NESDIS, 2023). Moreover, another solar wind disturbance that makes geomagnetic storms to occur more is a high-speed solar wind stream (HSS). HSS’s produce co-rotating interaction regions of CIRs when it interacts with the slower-moving solar wind. These situations are often correlated with geomagnetic storms. Although it is less than CME storms, it can accumulate more energy in Earth’s magnetosphere over a long period of time. CIRs are knowns as making recurring geomagnetic disturbances and often occurs when the phase of the solar cycle diminishes. When CIRs make it to Earth, it creates auroras and changes the satellite and communication systems (NOAA,2023).
 </p>
 
-<p>
+<p id="How">
     <strong>How Geomagnetic Storms affect Earth’s Infrastructure</strong>
      A geomagnetic storm also has impact on power grids and earth’s magnetic field. For instance, it can cause blackouts and interfere with satellites and high frequency radio communications (USGS 2023; NESDIS,2023).
 Moreover, the main drawback of increased radiation during geomagnetic storms have effect on astronauts such as it can lead to health risk on during spacewalks or long-during missions (NOAA, 2023).
@@ -184,7 +184,94 @@ NOAA’s Space Weather Prediction Center provides alerts to help power grids and
 
     <video src="Con proj presentation actuALLL.mp4" width="800" height="450" controls>
     </video>
-    
+
+        <!-- //////////////////////////////////////////////////////////////////////////////// -->
+  <!-- ////////////////////////////// Adding last update ////////////////////////////// -->
+  <!-- //////////////////////////////////////////////////////////////////////////////// -->
+    <!-- Last commit time display -->
+<div id="last-updated">Loading last update time...</div>
+<!-- Verify Button -->
+<button onclick="verifyLastUpdatedTime()" style="display: block; margin: 10px auto; padding: 8px 16px;">
+    Verify Last Modified Time
+</button>
+<script>
+    async function getLastUpdatedTime() {
+        const username = 'FEPSF6857600';
+        const repo = 'FY6857600';
+       
+        const url = `https://api.github.com/repos/${username}/${repo}/commits`;
+        try {
+            const response = await fetch(url, {
+                method: 'GET',
+                headers: {
+                    'Accept': 'application/vnd.github.v3+json',
+                }
+            });
+            if (!response.ok) {
+                throw new Error(`Error fetching data: ${response.status} - ${response.statusText}`);
+            }
+            const commits = await response.json();
+            if (commits && commits.length > 0) {
+                const lastCommitDate = new Date(commits[0].commit.committer.date);
+               
+                // Displaying the time on load
+                document.getElementById('last-updated').innerText = `Last Modified Time: ${lastCommitDate.toLocaleString()}`;
+            } else {
+                document.getElementById('last-updated').innerText = 'No commits found in the repository.';
+            }
+        } catch (error) {
+            console.error('Error fetching the last updated time:', error);
+            document.getElementById('last-updated').innerText = 'Error fetching update time. Please check the repository details.';
+        }
+    }
+    // Function to verify the last update time by re-fetching it from the API
+    async function verifyLastUpdatedTime() {
+        document.getElementById('last-updated').innerText = 'Verifying...';
+        await getLastUpdatedTime();
+        alert("Last modified time has been successfully verified from GitHub API.");
+    }
+    // Initial load to display the time on page load
+    window.onload = getLastUpdatedTime;
+</script>
+
+
+ <!-- //////////////////////////////////////////////////////////////////////////////// -->
+  <!-- ////////////////////////////// Word count function ////////////////////////////// -->
+  <!-- //////////////////////////////////////////////////////////////////////////////// -->
+<!-- Placeholder for total word count -->
+<p id="totalWordCount"></p>
+<hr>
+<script>
+  // Function to calculate and display word count for a specified section
+  function displayWordCount(sectionId, outputId) {
+    // Get the text content from the specified section
+    const text = document.getElementById(sectionId).textContent;
+    // Split text into words based on spaces and filter out any empty strings
+    const wordArray = text.trim().split(/\s+/);
+    // Count the words
+    const wordCount = wordArray.length;
+    // Return the word count for summing purposes
+    return wordCount;
+  }
+  // Function to calculate and display total word count from selected sections
+  function displayTotalWordCount() {
+    // Calculate word count for each section and accumulate the total
+    const IntroductionCount = displayWordCount("Intro");
+    const AnalysisCount = displayWordCount("Mech");
+    const HowCount = displayWordCount("How");
+    const TableCount = displayWordCount("Table1");
+    const descCount = displayWordCount("desc");
+    const HistoryCount = displayWordCount("History");
+    const MonitorCount = displayWordCount("Monitor");
+    const ConclusionCount = displayWordCount("Conclusion");
+    // Calculate the sum of all selected sections
+    const totalWordCount = IntroductionCount + AnalysisCount + HowCount + Table Count + descCount + HistoryCount + MonitorCount + ConclusionCount;
+    // Display the total word count
+    document.getElementById("totalWordCount").innerText = `Total word count: ${totalWordCount}`;
+  }
+  // Run the function for specific sections and display total count when the page loads
+  window.onload = displayTotalWordCount;
+</script>
 <h3 id="References">References</h3>
 <p>
     NESDIS. (2023). Solar Wind, Geomagnetic Storms, and Coronal Mass Ejections. NOAA.<br>
